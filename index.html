@@ -51,7 +51,11 @@ nav.days a{flex:0 0 auto;text-decoration:none;font-size:.9rem;font-weight:500;pa
 nav.days a.d1{border-color:var(--d1)} nav.days a.d2{border-color:var(--d2)} nav.days a.d3{border-color:var(--d3)}
 section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:72px}
 .map{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px}
+.map{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .map svg{display:block;width:100%;height:auto}
+@media (max-width:600px){.map svg{width:560px;max-width:none}}
+nav.days{scrollbar-width:none}
+nav.days::-webkit-scrollbar{display:none}
 .map text{font-family:var(--body);fill:var(--fg);font-size:14px}
 .map .s{font-size:12px;fill:var(--muted)}
 .map .n{font-size:12px;font-weight:700;fill:#fff}
@@ -155,7 +159,7 @@ footer{font-size:.8rem;color:var(--muted)}
     </g>
   </svg>
   </div>
-  <p class="note">示意圖，位置大致正確，距離沒有照比例。數字和下面行程的編號一樣。</p>
+  <p class="note">示意圖，位置大致正確，距離沒有照比例。數字和下面行程的編號一樣。手機上可以左右滑動地圖。</p>
 </section>
 
 <section id="day1" class="d1">
