@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>宜蘭三天兩夜</title>
+<meta name="description" content="3 大 1 小宜蘭親子行程：路線地圖、每日時間表、手作課程和行李清單。">
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: one narrow phone column; sticky day chips; each day is a timeline of stops */
+:root{
+  --bg:#f3f6f1; --card:#ffffff; --fg:#1f2b26; --muted:#5d6b64; --line:#d6dfd8;
+  --rice:#e9c46a; --sea:#2f7fb8; --sea-tint:rgba(47,127,184,.12);
+  --d1:#d5643a; --d1-tint:#fbe9e1; --d2:#178a6b; --d2-tint:#ddf2ea; --d3:#6c63c9; --d3-tint:#ebe9fb;
+  --opt:#8a8a82; --warn-bg:#fff4d6; --warn-fg:#6b4d00;
+  --display:"LXGW WenKai TC","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --card:#1d2521; --fg:#e7ede9; --muted:#9fb0a7; --line:#33403a;
+  --rice:#e3bf63; --sea:#6fb3e3; --sea-tint:rgba(111,179,227,.14);
+  --d1:#f08a62; --d1-tint:#3a241b; --d2:#4cc79f; --d2-tint:#173229; --d3:#a39cf0; --d3-tint:#26243f;
+  --opt:#a4a49c; --warn-bg:#3a3118; --warn-fg:#f1d58a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --card:#1d2521; --fg:#e7ede9; --muted:#9fb0a7; --line:#33403a;
+  --rice:#e3bf63; --sea:#6fb3e3; --sea-tint:rgba(111,179,227,.14);
+  --d1:#f08a62; --d1-tint:#3a241b; --d2:#4cc79f; --d2-tint:#173229; --d3:#a39cf0; --d3-tint:#26243f;
+  --opt:#a4a49c; --warn-bg:#3a3118; --warn-fg:#f1d58a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:2rem}
+h2{font-size:1.45rem}
+h3{font-size:1.1rem}
+p{margin:0}
+a{color:var(--sea)}
+a:focus-visible,button:focus-visible,input:focus-visible+span{outline:2px solid var(--sea);outline-offset:2px}
+header{padding-top:28px;display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-size:.8rem;letter-spacing:.08em;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.85rem}
+nav.days{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;gap:8px;overflow-x:auto;border-bottom:1px solid var(--line)}
+nav.days a{flex:0 0 auto;text-decoration:none;font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:999px;color:var(--fg);border:1px solid var(--line);background:var(--card)}
+nav.days a.d1{border-color:var(--d1)} nav.days a.d2{border-color:var(--d2)} nav.days a.d3{border-color:var(--d3)}
+section{display:flex;flex-direction:column;gap:14px;scroll-margin-top:72px}
+.map{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px}
+.map svg{display:block;width:100%;height:auto}
+.map text{font-family:var(--body);fill:var(--fg);font-size:14px}
+.map .s{font-size:12px;fill:var(--muted)}
+.map .n{font-size:12px;font-weight:700;fill:#fff}
+.note{font-size:.85rem;color:var(--muted)}
+.dayhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.daytag{font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:999px}
+.d1 .daytag{background:var(--d1-tint);color:var(--d1)} .d2 .daytag{background:var(--d2-tint);color:var(--d2)} .d3 .daytag{background:var(--d3-tint);color:var(--d3)}
+ol.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:56px 1fr;gap:12px;position:relative;padding-bottom:16px}
+.tl li::before{content:"";position:absolute;left:74px;top:14px;bottom:-4px;width:2px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.time{font-size:.8rem;color:var(--muted);padding-top:3px;text-align:right}
+.stop{position:relative;padding-left:16px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.stop::before{content:"";position:absolute;left:-1px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--dot);border:2px solid var(--bg)}
+.d1{--dot:var(--d1)} .d2{--dot:var(--d2)} .d3{--dot:var(--d3)}
+.stop .num{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:50%;background:var(--dot);color:#fff;font-size:.75rem;font-weight:700;margin-right:6px;vertical-align:2px}
+.stop h3{font-size:1.05rem}
+.stop p{font-size:.92rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.75rem;padding:1px 8px;border-radius:6px;background:var(--warn-bg);color:var(--warn-fg)}
+.chip.ok{background:var(--sea-tint);color:var(--sea)}
+.go{font-size:.85rem;text-decoration:none;font-weight:500}
+.go::after{content:" ↗"}
+.choice{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.choice div{border:1px dashed var(--line);border-radius:10px;padding:8px 10px}
+.choice strong{font-weight:500}
+.cards{display:grid;grid-template-columns:1fr;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card .where{font-size:.85rem;color:var(--muted)}
+.card .what{font-size:.95rem}
+.card .phone{font-family:var(--body);font-variant-numeric:tabular-nums;user-select:all;font-size:.9rem}
+.card.planned{border-color:var(--d2)}
+.tips{display:flex;flex-direction:column;gap:10px;margin:0;padding-left:1.2em}
+.check{display:flex;flex-direction:column;gap:8px}
+.check label{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--d2)}
+.check input:checked+span{text-decoration:line-through;color:var(--muted)}
+footer{font-size:.8rem;color:var(--muted)}
+@media (min-width:560px){.cards{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <span class="eyebrow">3 大 1 小・開車・11 月底</span>
+  <h1>宜蘭三天兩夜</h1>
+  <p>頭城看海、礁溪泡湯、員山餵動物、羅東逛夜市、五結玩傳藝。每天都有室內備案，下雨也不怕。</p>
+  <div class="facts"><span class="fact">第 1 晚 礁溪</span><span class="fact">第 2 晚 羅東</span><span class="fact">走國 5 雪隧</span></div>
+</header>
+
+<nav class="days" aria-label="跳到">
+  <a href="#map">地圖</a><a class="d1" href="#day1">第 1 天</a><a class="d2" href="#day2">第 2 天</a><a class="d3" href="#day3">第 3 天</a><a href="#diy">手作課程</a><a href="#tips">提醒</a>
+</nav>
+
+<section id="map">
+  <h2>路線地圖</h2>
+  <div class="map">
+  <svg viewBox="0 0 680 620" role="img" aria-label="宜蘭示意地圖，標出三天景點">
+    <path d="M360 0 L405 50 L442 132 L457 247 L450 380 L442 495 L465 577 L495 620 L680 620 L680 0 Z" fill="var(--sea-tint)"/>
+    <path d="M360 0 L405 50 L442 132 L457 247 L450 380 L442 495 L465 577 L495 620" fill="none" stroke="var(--sea)" stroke-width="1"/>
+    <path d="M160 412 Q300 396 448 396" fill="none" stroke="var(--sea)" stroke-width="2" opacity=".6"/>
+    <text class="s" x="560" y="60" text-anchor="middle">太平洋</text>
+    <ellipse cx="600" cy="182" rx="22" ry="9" fill="var(--opt)" opacity=".5"/>
+    <text class="s" x="600" y="210" text-anchor="middle">龜山島</text>
+    <text class="s" x="90" y="200" text-anchor="middle">雪山山脈</text>
+    <text class="s" x="100" y="580" text-anchor="middle">中央山脈</text>
+    <text class="s" x="210" y="420" text-anchor="middle" opacity=".9">蘭陽溪</text>
+    <text class="s" x="60" y="50">從台北走國 5 雪隧</text>
+    <line x1="230" y1="62" x2="334" y2="174" stroke="var(--opt)" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <path d="M427 135 L375 165 L330 205" fill="none" stroke="var(--d1)" stroke-width="2" stroke-dasharray="5 4"/>
+    <path d="M330 205 L225 297 L300 345 L345 352 L340 452" fill="none" stroke="var(--d2)" stroke-width="2" stroke-dasharray="5 4"/>
+    <path d="M340 452 L410 436 L446 586 L420 561" fill="none" stroke="var(--d3)" stroke-width="2" stroke-dasharray="5 4"/>
+    <g fill="var(--d1)"><circle cx="427" cy="135" r="12"/><circle cx="375" cy="165" r="12"/><circle cx="330" cy="205" r="12"/></g>
+    <g fill="var(--d2)"><circle cx="225" cy="297" r="12"/><circle cx="300" cy="345" r="12"/><circle cx="345" cy="352" r="12"/><circle cx="340" cy="452" r="12"/></g>
+    <g fill="var(--d3)"><circle cx="410" cy="436" r="12"/><circle cx="312" cy="424" r="12"/><circle cx="270" cy="503" r="12"/><circle cx="385" cy="470" r="12"/><circle cx="446" cy="586" r="12"/><circle cx="420" cy="561" r="12"/></g>
+    <circle cx="60" cy="300" r="9" fill="none" stroke="var(--opt)" stroke-dasharray="3 2"/>
+    <g class="n" text-anchor="middle" dominant-baseline="central">
+      <text class="n" x="427" y="135">1</text><text class="n" x="375" y="165">2</text><text class="n" x="330" y="205">3</text>
+      <text class="n" x="225" y="297">4</text><text class="n" x="300" y="345">5</text><text class="n" x="345" y="352">6</text><text class="n" x="340" y="452">7</text>
+      <text class="n" x="410" y="436">8</text><text class="n" x="312" y="424">9</text><text class="n" x="270" y="503">10</text><text class="n" x="385" y="470">11</text><text class="n" x="446" y="586">12</text><text class="n" x="420" y="561">13</text>
+    </g>
+    <g dominant-baseline="central">
+      <text x="411" y="135" text-anchor="end">蘭陽博物館</text>
+      <text x="391" y="165">頭城農場</text>
+      <text x="314" y="203" text-anchor="end">礁溪溫泉</text>
+      <text x="209" y="290" text-anchor="end">張美阿嬤農場</text>
+      <text x="284" y="352" text-anchor="end">宜蘭運動公園</text>
+      <text x="362" y="352">菌寶貝</text>
+      <text x="340" y="481" text-anchor="middle">羅東夜市</text>
+      <text x="410" y="413" text-anchor="middle">傳藝中心</text>
+      <text x="296" y="426" text-anchor="end">羅東林業園區</text>
+      <text x="254" y="503" text-anchor="end">梅花湖</text>
+      <text x="385" y="499" text-anchor="middle">蠟筆城堡</text>
+      <text x="75" y="300">福山植物園</text>
+      <text class="s" x="75" y="318">需申請・貓頭鷹</text>
+      <text x="404" y="561" text-anchor="end">白米木屐館</text>
+      <text x="430" y="593" text-anchor="end">宜蘭餅發明館</text>
+      <text class="s" x="500" y="600">蘇澳</text>
+    </g>
+  </svg>
+  </div>
+  <p class="note">示意圖，位置大致正確，距離沒有照比例。數字和下面行程的編號一樣。</p>
+</section>
+
+<section id="day1" class="d1">
+  <div class="dayhead"><span class="daytag">第 1 天</span><h2>頭城・礁溪</h2></div>
+  <ol class="tl">
+    <li><span class="time">上午</span><div class="stop"><h3><span class="num">1</span>蘭陽博物館</h3><p>像斜插在地上的岩石，裡面講宜蘭的山、平原和海，有動物標本和互動展。</p><div class="chips"><span class="chip">有固定休館日，出發前查官網</span></div><a class="go" href="https://www.google.com/maps/search/?api=1&query=蘭陽博物館">開地圖</a></div></li>
+    <li><span class="time">中午</span><div class="stop"><h3>頭城老街／外澳海邊</h3><p>吃午餐，順便去海邊看龜山島。</p></div></li>
+    <li><span class="time">下午</span><div class="stop"><h3><span class="num">2</span>頭城農場</h3><p>焢窯、做手工 pizza、餵動物。</p><div class="chips"><span class="chip">要先預約</span></div><a class="go" href="https://www.google.com/maps/search/?api=1&query=頭城農場">開地圖</a></div></li>
+    <li><span class="time">傍晚</span><div class="stop"><h3><span class="num">3</span>入住礁溪溫泉飯店</h3><p>選有親子房或大眾池的。晚上去礁溪溫泉公園泡腳。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=礁溪溫泉公園">開地圖</a></div></li>
+  </ol>
+</section>
+
+<section id="day2" class="d2">
+  <div class="dayhead"><span class="daytag">第 2 天</span><h2>員山・宜蘭市・羅東</h2></div>
+  <ol class="tl">
+    <li><span class="time">上午</span><div class="stop"><h3><span class="num">4</span>張美阿嬤農場</h3><p>餵水豚、羊駝和山羊，可另外買飼料。帶濕紙巾，穿不怕髒的鞋。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=張美阿嬤農場">開地圖</a></div></li>
+    <li><span class="time">中午</span><div class="stop"><h3><span class="num">5</span>午餐＋宜蘭運動公園</h3><p>在宜蘭市吃午餐，飯後去公園玩溜滑梯和遊樂設施，大約 1 小時。</p><div class="chips"><span class="chip">下雨就跳過</span><span class="chip">設施可能整修，先看最新評論</span></div><a class="go" href="https://www.google.com/maps/search/?api=1&query=宜蘭運動公園">開地圖</a></div></li>
+    <li><span class="time">下午</span><div class="stop"><h3><span class="num">6</span>菌寶貝博物館</h3><p>室內 DIY，雨天也適合。想玩陶土的話，可以改去附近的野孩子創藝空間（見手作課程）。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=菌寶貝博物館">開地圖</a></div></li>
+    <li><span class="time">晚上</span><div class="stop"><h3><span class="num">7</span>羅東夜市</h3><p>入住羅東或冬山民宿後去逛。推卜肉、包心粉圓、三星蔥餅。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=羅東夜市">開地圖</a></div></li>
+  </ol>
+</section>
+
+<section id="day3" class="d3">
+  <div class="dayhead"><span class="daytag">第 3 天</span><h2>五結・蘇澳</h2></div>
+  <ol class="tl">
+    <li><span class="time">上午</span><div class="stop"><h3><span class="num">8</span>國立傳統藝術中心</h3><p>老街、童玩、布袋戲和 DIY，可以待半天，午餐也在這裡吃。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=國立傳統藝術中心">開地圖</a></div></li>
+    <li><span class="time">下午</span><div class="stop"><h3><span class="num">12</span>宜蘭餅發明館（蘇澳）</h3><p>從傳藝中心開車約 25 分鐘。親手做宜蘭餅，還有 3D 彩繪拍照區。</p><div class="chips"><span class="chip">DIY 只開週五到週一</span><span class="chip">要先預約</span></div><a class="go" href="https://www.google.com/maps/search/?api=1&query=宜蘭餅發明館">開地圖</a></div></li>
+    <li><span class="time">時間夠</span><div class="stop"><h3><span class="num">13</span>白米木屐館</h3><p>在蘇澳白米社區，離宜蘭餅發明館很近。手作木屐、皮雕彩繪，課程比較花時間，趕的話就只參觀。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=白米木屐館">開地圖</a></div></li>
+    <li><span class="time">備案</span><div class="stop"><h3>不想去蘇澳的話，三選一</h3>
+      <div class="choice">
+        <div><strong><span class="num">9</span>羅東林業文化園區</strong><p>看水池、老火車和鴨子，免費好走。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=羅東林業文化園區">開地圖</a></div>
+        <div><strong><span class="num">10</span>梅花湖</strong><p>環湖騎腳踏車，有親子協力車。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=梅花湖">開地圖</a></div>
+        <div><strong><span class="num">11</span>蜡藝蠟筆城堡</strong><p>雨天備案，可以做蠟筆。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=蜡藝蠟筆城堡">開地圖</a></div>
+      </div></div></li>
+    <li><span class="time">傍晚</span><div class="stop"><h3>買伴手禮、回家</h3><p>牛舌餅、鴨賞、蜜餞，宜蘭餅發明館就能買。蘇澳離雪隧比較遠，最好 4 點前出發回家。</p></div></li>
+  </ol>
+</section>
+
+<section id="diy">
+  <h2>手作課程</h2>
+  <p class="note">課程、時段和價格常會調整，以下資料來自旅遊文章，報名前請打電話或看粉專確認。</p>
+  <div class="cards">
+    <div class="card planned"><h3>菌寶貝博物館</h3><span class="where">宜蘭市梅洲一路 22 號・已排在第 2 天</span><p class="what">益生菌主題的觀光工廠，有 DIY 體驗。</p><span class="phone">03-928-1168</span><a class="go" href="https://www.google.com/maps/search/?api=1&query=菌寶貝博物館">開地圖</a></div>
+    <div class="card"><h3>野孩子創藝空間</h3><span class="where">宜蘭市中山路五段 48 號 1 樓・離運動公園近</span><p class="what">捏陶土、紮染衣服，是真的動手做，不只是材料包。</p><span class="phone">0921-201648</span><a class="go" href="https://www.google.com/maps/search/?api=1&query=野孩子創藝空間">開地圖</a></div>
+    <div class="card planned"><h3>宜蘭餅發明館</h3><span class="where">蘇澳・已排在第 3 天下午</span><p class="what">親手做宜蘭餅，還有 3D 彩繪拍照區。DIY 只開週五到週一，可以電話或線上預約。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=宜蘭餅發明館">開地圖</a></div>
+    <div class="card planned"><h3>白米木屐館</h3><span class="where">蘇澳白米社區・已排在第 3 天（時間夠再去）</span><p class="what">手作木屐、皮雕彩繪，還能看老師傅做木屐的歷史。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=白米木屐館">開地圖</a></div>
+    <div class="card"><h3>大風吹手作館</h3><span class="where">位置請用地圖搜尋</span><p class="what">做天氣瓶、紙飛機推進器，有四種 DIY 可選，也有輕食。每場人數不定，建議先預約。</p><a class="go" href="https://www.google.com/maps/search/?api=1&query=大風吹手作館">開地圖</a></div>
+    <div class="card"><h3>頭城農場・蠟筆城堡</h3><span class="where">已在行程中</span><p class="what">頭城農場做 pizza、焢窯（第 1 天）；蠟筆城堡做蠟筆（第 3 天選項）。</p></div>
+  </div>
+</section>
+
+<section id="tips">
+  <h2>出發前提醒</h2>
+  <ol class="tips">
+    <li>3 大 1 小訂四人房通常最划算，問清楚小孩要不要加收費用。</li>
+    <li>11、12 月宜蘭濕冷常下雨，帶雨衣、防水外套和一套備用衣服。</li>
+    <li>頭城農場、DIY 課程、福山植物園都要事先預約。</li>
+    <li>宜蘭餅發明館的 DIY 只開週五到週一，所以第 3 天要落在這幾天，例如週五出發、週日回家。</li>
+    <li>北部出發避開週五晚上和週日下午的雪隧車潮。</li>
+  </ol>
+  <h3>行李清單</h3>
+  <div class="check" id="check">
+    <label><input type="checkbox" id="c1"><span>雨衣、雨傘</span></label>
+    <label><input type="checkbox" id="c2"><span>防水外套</span></label>
+    <label><input type="checkbox" id="c3"><span>小孩備用衣服、襪子</span></label>
+    <label><input type="checkbox" id="c4"><span>泡湯用的毛巾、浴帽</span></label>
+    <label><input type="checkbox" id="c5"><span>濕紙巾（農場餵動物）</span></label>
+    <label><input type="checkbox" id="c6"><span>不怕髒的鞋</span></label>
+    <label><input type="checkbox" id="c7"><span>DIY 和農場的預約資料</span></label>
+  </div>
+  <p class="note">勾選的項目只會存在這支手機上。</p>
+</section>
+
+<footer>資料整理於 2026 年 11 月。營業時間、預約方式請以各店家官網或粉專為準。</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='yilan-trip-check';
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+  document.querySelectorAll('#check input').forEach(function(box){
+    if(saved[box.id])box.checked=true;
+    box.addEventListener('change',function(){
+      saved[box.id]=box.checked;
+      try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
